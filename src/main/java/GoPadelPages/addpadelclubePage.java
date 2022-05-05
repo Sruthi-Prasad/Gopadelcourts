@@ -13,7 +13,7 @@ import org.testng.Assert;
 
 public class addpadelclubePage {
 	WebDriver driver;
-	String personName ,clubName,padelclubphone;
+	String personName ,clubName,padelclubphone,padelclubmobile,padelclubEmail,padelclubAddress,padelconfirmPassword,padelPassword,padelclubDetails,padelclubDescription,padelclubwebaddress;
 	public addpadelclubePage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
@@ -33,157 +33,199 @@ public class addpadelclubePage {
 	WebElement phone_number;
 	@FindBy(xpath = "//*[@id=\"mobile_number\"]")
 	WebElement mobilenumber;
+	@FindBy(xpath = "//*[@id='email']")
+	WebElement emailfield;
+	@FindBy(xpath = "//*[@id='web']")
+	WebElement web;
+	@FindBy(xpath = "//*[@id='password']")
+	WebElement password;
+	@FindBy(xpath = "//*[@id='confirm_password']")
+	WebElement confirmPassword;
+	@FindBy(xpath = "//*[@id='address']")
+	WebElement Addressfield;
+	@FindBy(xpath = "//*[@id='Status']")
+	WebElement status;
+	@FindBy(xpath = "//*[@id=\"divdynemicmenu\"]/div[3]/main/div/div/div/form/div[1]/div/div[11]/div/textarea")
+	WebElement padeldetails;
+	@FindBy(xpath = "//*[@id=\"divdynemicmenu\"]/div[3]/main/div/div/div/form/div[1]/div/div[12]/div/textarea")
+	WebElement padeldescription;
+	@FindBy(xpath = "//*[@id=\"divdynemicmenu\"]/div[3]/main/div/div/div/form/div[1]/div/label")
+	WebElement padellogo;
+	@FindBy(xpath = "//*[@id=\"divdynemicmenu\"]/div[3]/main/div/div/div/form/div[2]/button")
+	WebElement savebutton;
 	public void displayhome() {
 		Assert.assertEquals(true, home.isDisplayed());
 		System.out.println("AddPadelclubes is displayed");
+		System.out.println("===========================================================");
 	}
 	
 	public void  padels() {
 		Assert.assertEquals(true, padels.isDisplayed());
 		System.out.println(" padels is displayed");
+		System.out.println("===========================================================");
 	}
 	public void  AddModifyPadel() {
 		Assert.assertEquals(true, padels.isDisplayed());
 		System.out.println(" AddModifyPadel is displayed");
+		System.out.println("===========================================================");
 	}
 	
 	public void PersonNameField() {
 		Assert.assertEquals(true, PersonalNamefield.isDisplayed());
 		System.out.println("Person Name Field is displayed");
+		System.out.println("===========================================================");
 		Scanner enterPersonName = new Scanner(System.in);
 		System.out.println("Enter the Person Name : ");
 		personName = enterPersonName.nextLine();
 		PersonalNamefield.sendKeys(personName);
 	}
 
-	public void BranchNameField() {
+	public void padelclubNameField() {
 		Assert.assertEquals(true, PadelClubName.isDisplayed());
-		System.out.println("Branch Name Field is displayed");
-		Scanner enterBranchName = new Scanner(System.in);
+		System.out.println("PadelClub Name Field is displayed");
+		System.out.println("===========================================================");
+		Scanner enterpadelclubhName = new Scanner(System.in);
 		System.out.println("Enter the Branch Name : ");
-		clubName = enterBranchName.nextLine();
+		clubName =enterpadelclubhName.nextLine();
 		PadelClubName.sendKeys(clubName);
 	}
 
-	public void BranchPhoneField() {
+	public void padelclubmobileField() {
 		Assert.assertEquals(true, mobilenumber.isDisplayed());
-		System.out.println("Branch Phone Field is displayed");padelclubePage878
+		System.out.println("padelclub mobile Field is displayed");
+		System.out.println("===========================================================");
 		Scanner enterBranchPhone = new Scanner(System.in);
-		System.out.println("Enter the Branch Phone : ");
-		padelclubphone = enterBranchPhone.nextLine();
+		System.out.println("Enter the mobile Field : ");
+		padelclubmobile = enterBranchPhone.nextLine();
+		String regex = "[0-9]+";
+
+		if (padelclubmobile.matches(regex)) {
+			mobilenumber.sendKeys(padelclubmobile);
+		}
+	}
+	public void padelclubphoneField() {
+		Assert.assertEquals(true, phone_number.isDisplayed());
+		System.out.println("PadelClub Phone Field is displayed");
+		System.out.println("===========================================================");
+		Scanner enterpadelclubPhone = new Scanner(System.in);
+		System.out.println("Enter thePadelClub Phone : ");
+		padelclubphone = enterpadelclubPhone.nextLine();
 		String regex = "[0-9]+";
 
 		if (padelclubphone.matches(regex)) {
-			mobilenumber.sendKeys(padelclubphone);
+			phone_number.sendKeys(padelclubphone);
 		}
 	}
+	public void padelclubEmailField() {
+		Assert.assertEquals(true, emailfield.isDisplayed());
+		System.out.println("PadelClub Email Field is displayed");
+		System.out.println("===========================================================");
+		Scanner enterpadelclubEmail = new Scanner(System.in);
+		System.out.println("Enter the Email Field : ");
+		padelclubEmail = enterpadelclubEmail.nextLine();
+		String regex = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$";
 
-//	public void BranchEmailField() {
-//		Assert.assertEquals(true, branchEmailField.isDisplayed());
-//		System.out.println("Branch Email Field is displayed");
-//		Scanner enterBranchEmail = new Scanner(System.in);
-//		System.out.println("Enter the Branch Email : ");
-//		branchEmail = enterBranchEmail.nextLine();
-//		String regex = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$";
-//
-//		if (branchEmail.matches(regex)) {
-//			branchEmailField.sendKeys(branchEmail);
-//		}
-//	}
-//
-//	public void BranchAddressField() {
-//		Assert.assertEquals(true, branchAddressField.isDisplayed());
-//		System.out.println("Branch Address Field is displayed");
-//		Scanner enterBranchAddress = new Scanner(System.in);
-//		System.out.println("Enter the Branch Address : ");
-//		branchAddress = enterBranchAddress.nextLine();
-//		branchAddressField.sendKeys(branchAddress);
-//	}
-//
-//	public void BranchDetailsField() {
-//		Assert.assertEquals(true, branchDetailsField.isDisplayed());
-//		System.out.println("Branch Details Field is displayed");
-//		Scanner enterBranchDetails = new Scanner(System.in);
-//		System.out.println("Enter the Branch Details : ");
-//		branchDetails = enterBranchDetails.nextLine();
-//		branchDetailsField.sendKeys(branchDetails);
-//
-//	}
-//
-//	public void PadelDropdown() {
-//		Assert.assertEquals(true, padelDropdown.isDisplayed());
-//		System.out.println("Padel Dropdown is displayed");
-//		Select padleName = new Select(padelDropdown);
-//		List<WebElement> padledropdown = padleName.getOptions();
-//		for (WebElement padelDropdown : padledropdown) {
-//			System.out.println(padelDropdown.getText());
-//		}
-//		padleName.selectByIndex(1);
-//
-//	}
-//
-//	public void CityDropdown() {
-//		Assert.assertEquals(true, cityDropdown.isDisplayed());
-//		System.out.println("City Dropdown is displayed");
-//		Select city = new Select(cityDropdown);
-//		List<WebElement> citydropdown = city.getOptions();
-//		for (WebElement cityDropdown : citydropdown) {
-//			System.out.println(cityDropdown.getText());
-//		}
-//		city.selectByIndex(1);
-//
-//	}
-//
-//	public void BranchLatitudeField() {
-//		Assert.assertEquals(true, branchLatitudeField.isDisplayed());
-//		System.out.println("Branch Latitude Field is displayed");
-//		Scanner enterBranchLatitude = new Scanner(System.in);
-//		System.out.println("Enter the Branch Latitude : ");
-//		branchLatitude = enterBranchLatitude.nextLine();
-//		branchLatitudeField.sendKeys(branchLatitude);
-//	}
-//
-//	public void BranchLongitudeField() {
-//		Assert.assertEquals(true, branchLongitudeField.isDisplayed());
-//		System.out.println("Branch Longitude Field is displayed");
-//		Scanner enterBranchLongitude = new Scanner(System.in);
-//		System.out.println("Enter the Branch Longitude : ");
-//		branchLongitude = enterBranchLongitude.nextLine();
-//		branchLongitudeField.sendKeys(branchLongitude);
-//
-//	}
-//
-//	public void StatusDropdown() {
-//		Assert.assertEquals(true, statusDropdown.isDisplayed());
-//		System.out.println("Status Dropdown is displayed");
-//		Select status = new Select(statusDropdown);
-//		List<WebElement> statusdropdown = status.getOptions();
-//		for (WebElement statusDropdown : statusdropdown) {
-//			System.out.println(statusDropdown.getText());
-//		}
-//		status.selectByIndex(0);
-//
-//	}
-//
-//	public void SaveButton() {
-//		Assert.assertEquals(true, saveButton.isDisplayed());
-//		System.out.println("Save Button is displayed");
-//		if (personName.isEmpty() && branchName.isEmpty() && branchPhone.isEmpty() && branchEmail.isEmpty()
-//				&& branchAddress.isEmpty() && branchDetails.isEmpty() && branchLatitude.isEmpty()
-//				&& branchLongitude.isEmpty()) {
-//			((JavascriptExecutor) driver).executeScript("arguments[0].click();", saveButton);
-//			System.out.println("Error message is displayed as Please fill out this field");
-//		}
-//
-//		else {
-//			((JavascriptExecutor) driver).executeScript("arguments[0].click();", saveButton);
-//			String expectedUrl = "https://gopadel.cadvil.com/admin/padelBranch/list";
-//			String actualUrl = driver.getCurrentUrl();
-//			Assert.assertEquals(expectedUrl, actualUrl);
-//			System.out.println("Navigated to Padel Branch Page");
-//		}
-//
-//	}
-//	
+		if (padelclubEmail.matches(regex)) {
+			emailfield.sendKeys(padelclubEmail);
+		}
+	}
 	
+	public void padelclubwebField() {
+		Assert.assertEquals(true, web.isDisplayed());
+		System.out.println("PadelClub web Field is displayed");
+		System.out.println("===========================================================");
+		Scanner enterpadelclubweb = new Scanner(System.in);
+		System.out.println("Enter the padelclubweb web: ");
+		padelclubwebaddress = enterpadelclubweb.nextLine();
+		web.sendKeys(padelclubwebaddress);
+	}
+	public void padelpasswordField() {
+		Assert.assertEquals(true, password.isDisplayed());
+		System.out.println("Password  Field is displayed");
+		System.out.println("===========================================================");
+		Scanner enterpadelclubPassword = new Scanner(System.in);
+		System.out.println("Enter the padelPassword address: ");
+		padelPassword = enterpadelclubPassword.nextLine();
+		password.sendKeys(padelPassword);
+	}
+	public void padelconfirmpasswordField() {
+		Assert.assertEquals(true, confirmPassword.isDisplayed());
+		System.out.println("confirmPassword Field is displayed");
+		System.out.println("===========================================================");
+		Scanner enterpadelclubconfirmPassword = new Scanner(System.in);
+		System.out.println("Enter the confirmPassword: ");
+		padelconfirmPassword =  enterpadelclubconfirmPassword.nextLine();
+		confirmPassword.sendKeys(padelconfirmPassword);
+	}
+	
+
+	public void padelclubAddressField() {
+		Assert.assertEquals(true, Addressfield.isDisplayed());
+		System.out.println("PadelClub Address Field is displayed");
+		System.out.println("===========================================================");
+		Scanner enterpadelclubAddress = new Scanner(System.in);
+		System.out.println("Enter the padelclubAddress : ");
+		padelclubAddress = enterpadelclubAddress.nextLine();
+		Addressfield.sendKeys(padelclubAddress);
+	}
+	
+	
+	public void StatusDropdown() {
+		Assert.assertEquals(true, status.isDisplayed());
+		System.out.println("Status Dropdown is displayed");
+		System.out.println("===========================================================");
+		Select Status = new Select(status);
+		List<WebElement> statusdropdown = Status.getOptions();
+		for (WebElement statusDropdown : statusdropdown) {
+			System.out.println(statusDropdown.getText());
+		}
+		Status.selectByIndex(0);
+
+	}
+	
+	public void padelclubDetailsField() {
+		Assert.assertEquals(true, padeldetails.isDisplayed());
+		System.out.println("PadelClub Details Field is displayed");
+		System.out.println("===========================================================");
+		Scanner enterpadelclubDetails = new Scanner(System.in);
+		System.out.println("Enter the Branch Details : ");
+		padelclubDetails = enterpadelclubDetails.nextLine();
+		padeldetails.sendKeys(padelclubDetails);
+
+	}
+	public void padelclubdescription() {
+		Assert.assertEquals(true, padeldescription.isDisplayed());
+		System.out.println("PadelClub Details Field is displayed");
+		System.out.println("===========================================================");
+		Scanner enterpadelclubdescription = new Scanner(System.in);
+		System.out.println("Enter the Branch Details : ");
+		padelclubDescription = enterpadelclubdescription.nextLine();
+		padeldescription.sendKeys(padelclubDescription);
+	
+	}
+
+	
+	
+public void SaveButton() {
+	Assert.assertEquals(true, savebutton.isDisplayed());
+	System.out.println("Save Button is displayed");
+	if(personName.isEmpty() && clubName.isEmpty() &&  padelclubmobile.isEmpty()&& padelclubphone.isEmpty() && padelclubEmail.isEmpty()
+			&& padelclubAddress.isEmpty() && padelconfirmPassword.isEmpty() && padelclubwebaddress.isEmpty()
+			) {
+		((JavascriptExecutor) driver).executeScript("arguments[0].click();", savebutton);
+		System.out.println("Error message is displayed as Please fill out this field");
+		System.out.println("===========================================================");
+	}
+	else {
+		((JavascriptExecutor) driver).executeScript("arguments[0].click();", savebutton);
+		String expectedUrl = "https://gpv2.cadvil.com/bookings/list-padels";
+		String actualUrl = driver.getCurrentUrl();
+		Assert.assertEquals(expectedUrl, actualUrl);
+		System.out.println("Navigated to Padel club Page");
+		System.out.println("===========================================================");
+	}
 }
+}
+
+
+

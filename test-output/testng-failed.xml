@@ -7,7 +7,7 @@
         <methods>
           <include name="suiteTearDown"/>
           <include name="suiteSetup"/>
-          <include name="PadellistPageTitle"/>
+          <include name="AddPadelCourtsPage"/>
         </methods>
       </class> <!-- GoPadelTest.GoPadelTest -->
     </classes>
